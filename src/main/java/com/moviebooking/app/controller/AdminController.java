@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {
@@ -28,4 +29,5 @@ public class AdminController {
         userService.deleteUser(id);
         return ResponseEntity.ok("User deleted successfully!");
     }
+
 }

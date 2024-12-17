@@ -1,20 +1,12 @@
 package com.moviebooking.app.controller;
 
-
-import com.moviebooking.app.model.Booking;
 import com.moviebooking.app.model.Movie;
-import com.moviebooking.app.repository.BookingRepository;
-import com.moviebooking.app.repository.MovieRepository;
 import com.moviebooking.app.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/movies")
@@ -57,4 +49,5 @@ public class MovieController {
         movieService.deleteMovie(id);
         return ResponseEntity.ok("Movie deleted successfully!");
     }
+
 }

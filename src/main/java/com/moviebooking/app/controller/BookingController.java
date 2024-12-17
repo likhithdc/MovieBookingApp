@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("/api/bookings")
 public class BookingController {
+
     @Autowired
     private BookingService bookingService;
 
@@ -52,12 +54,11 @@ public class BookingController {
         return ResponseEntity.ok("booking deleted successfully");
     }
 
-
     // Get all bookings for a user
-
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Booking>> getBookingsByUser(@PathVariable Long userId) {
         List<Booking> bookings = bookingService.getBookingsByUser(userId);
         return ResponseEntity.ok(bookings);
     }
+
 }

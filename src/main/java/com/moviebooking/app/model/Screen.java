@@ -4,18 +4,16 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+
 @Entity
 public class Screen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name; // e.g., "Screen 1", "IMAX"
-
     @OneToMany(mappedBy = "screen")
     private List<Showtime> showtimes; // List of showtimes for this screen
-
     // Getters and Setters
 
     public Long getId() {
@@ -41,4 +39,5 @@ public class Screen {
     public void setShowtimes(List<Showtime> showtimes) {
         this.showtimes = showtimes;
     }
+
 }

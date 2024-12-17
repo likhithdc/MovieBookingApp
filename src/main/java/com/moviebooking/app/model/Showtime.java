@@ -4,23 +4,20 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
+
 @Entity
 public class Showtime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
-
     @ManyToOne
     @JoinColumn(name = "screen_id")
     private Screen screen;
-
     private LocalDateTime showTime; // The time when the movie is being shown
-
     // Getters and Setters
 
     public Long getId() {
@@ -54,4 +51,5 @@ public class Showtime {
     public void setShowTime(LocalDateTime showTime) {
         this.showTime = showTime;
     }
+
 }
