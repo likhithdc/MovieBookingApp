@@ -1,20 +1,12 @@
 package com.moviebooking.app.model;
 
+import com.moviebooking.app.service.Cinema;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 
 @Entity
+@NamedQuery(name = "Screen.findByType", query = "SELECT s FROM Screen s WHERE s.type=:type")
 public class Screen {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name; // e.g., "Screen 1", "IMAX"
-    @OneToMany(mappedBy = "screen")
-    private List<Showtime> showtimes; // List of showtimes for this screen
-    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -24,20 +16,51 @@ public class Screen {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 
-    public List<Showtime> getShowtimes() {
-        return showtimes;
+    public PVR getPvrCinema() {
+        return pvrCinema;
     }
 
-    public void setShowtimes(List<Showtime> showtimes) {
-        this.showtimes = showtimes;
+    public void setPvrCinema(PVR pvrCinema) {
+        this.pvrCinema = pvrCinema;
+    }
+
+    public Innox getInnoxCinema() {
+        return innoxCinema;
+    }
+
+    public void setInnoxCinema(Innox innoxCinema) {
+        this.innoxCinema = innoxCinema;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String type;
+
+    @OneToOne
+    private Movie movie;
+
+    @ManyToOne
+    private PVR pvrCinema;
+
+    @ManyToOne
+    private Innox innoxCinema;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

@@ -1,41 +1,26 @@
 package com.moviebooking.app.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "movies")
 public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String title;
-    @Column(nullable = false)
-    private String duration;
-    @Column(nullable = false)
-    private String Language;
-    @Column(nullable = false)
-    private String genre;
-    @Column(nullable = false)
-    private String director;
-    @Column(nullable = false)
-    private String showCycle; // Show timings, e.g., "10:00 AM, 1:00 PM, 4:00 PM"
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Booking> bookings;
-    // Getters and Setters
 
-    public Long getId() {
-        return id;
+    public LocalDate getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getTitle() {
@@ -46,22 +31,6 @@ public class Movie {
         this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
     public String getShowCycle() {
         return showCycle;
     }
@@ -70,28 +39,10 @@ public class Movie {
         this.showCycle = showCycle;
     }
 
-    public List<Booking> getBookings() {
-        return bookings;
-    }
+    private String title;
 
-    public void setBookings(List<Booking> bookings) {
-        this.bookings = bookings;
-    }
+    private LocalDate releaseDate;
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public String getLanguage() {
-        return Language;
-    }
-
-    public void setLanguage(String language) {
-        Language = language;
-    }
+    private String showCycle;
 
 }

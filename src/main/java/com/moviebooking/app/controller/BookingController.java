@@ -11,54 +11,20 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/bookings")
+@RequestMapping("/bookings")
 public class BookingController {
 
     @Autowired
     private BookingService bookingService;
 
-    // Create a booking
-    @PostMapping("/add/{movieId}")
-    public ResponseEntity<String> createBooking(@PathVariable Long movieId, @RequestBody String bookingName) {
-        bookingService.createBooking(movieId, bookingName);
-        return ResponseEntity.ok("Booking created successfully!");
+    @PostMapping
+    public Booking createBooking(@RequestBody Booking booking) {
+        return bookingService.createBooking(booking);
     }
 
-    // Cancel a booking
-    @PutMapping("/cancel/{id}")
-    public ResponseEntity<String> cancelBooking(@PathVariable Long id) {
-        bookingService.cancelBooking(id);
-        return ResponseEntity.ok("Booking canceled successfully!");
-    }
-
-    @GetMapping("/{bookingId}")
-    public ResponseEntity<Optional<Booking>> getBookingById(@PathVariable Long bookingId) {
-        Booking booking = bookingService.getBookingsById(bookingId);
-        if (booking != null) {
-            return ResponseEntity.ok(Optional.of(booking));
-        } else {
-            return ResponseEntity.status(404).body(null);
-        }
-    }
-
-    // Update booking timings
-    @PutMapping("/{bookingId}/update-time")
-    public ResponseEntity<String> updateBookingTime(@PathVariable Long id, @RequestParam String newShowTime) {
-        bookingService.updateBookingTime(id, newShowTime);
-        return ResponseEntity.ok("Booking updated successfully!");
-    }
-
-    @DeleteMapping("/{bookingId}/delete")
-    public ResponseEntity<String> deleteBooking(@PathVariable Long bookingId) {
-        bookingService.deleteBooking(bookingId);
-        return ResponseEntity.ok("booking deleted successfully");
-    }
-
-    // Get all bookings for a user
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Booking>> getBookingsByUser(@PathVariable Long userId) {
-        List<Booking> bookings = bookingService.getBookingsByUser(userId);
-        return ResponseEntity.ok(bookings);
+    @GetMapping
+    public List<Booking> getBookingByUser(@PathVariable Long userId) {
+        return bookingService.getBookingsByUser(userId);
     }
 
 }
