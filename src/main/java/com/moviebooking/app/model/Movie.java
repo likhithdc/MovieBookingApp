@@ -15,6 +15,29 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String title;
+
+    private LocalDate releaseDate;
+
+    private String showCycle;
+
+    public Movie() {
+    }
+
+    public Movie(String title, LocalDate releaseDate, String showCycle) {
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.showCycle = showCycle;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public LocalDate getReleaseDate() {
         return releaseDate;
     }
@@ -38,11 +61,5 @@ public class Movie {
     public void setShowCycle(String showCycle) {
         this.showCycle = showCycle;
     }
-
-    private String title;
-
-    private LocalDate releaseDate;
-
-    private String showCycle;
 
 }
