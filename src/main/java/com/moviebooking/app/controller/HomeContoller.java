@@ -11,12 +11,12 @@ import java.util.List;
 
 
 @Controller
-public class HomeController {
+public class HomeContoller {
 
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String home(Model model) {
         List<Movie> movies = movieService.getAllMovies();
         model.addAttribute("movies", movies);
