@@ -8,6 +8,29 @@ import jakarta.persistence.*;
 @NamedQuery(name = "Screen.findByType", query = "SELECT s FROM Screen s WHERE s.type=:type")
 public class Screen {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String type;
+
+    @OneToOne
+    private Movie movie;
+
+    @ManyToOne
+    private PVR pvrCinema;
+
+    @ManyToOne
+    private Innox innoxCinema;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public Long getId() {
         return id;
     }
@@ -38,29 +61,6 @@ public class Screen {
 
     public void setInnoxCinema(Innox innoxCinema) {
         this.innoxCinema = innoxCinema;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String type;
-
-    @OneToOne
-    private Movie movie;
-
-    @ManyToOne
-    private PVR pvrCinema;
-
-    @ManyToOne
-    private Innox innoxCinema;
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
 }
