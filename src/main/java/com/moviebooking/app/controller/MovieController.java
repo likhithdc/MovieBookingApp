@@ -3,7 +3,6 @@ package com.moviebooking.app.controller;
 import com.moviebooking.app.model.Movie;
 import com.moviebooking.app.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

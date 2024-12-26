@@ -1,4 +1,4 @@
-package com.moviebooking.app.service;
+package com.moviebooking.app.Config;
 
 import com.moviebooking.app.model.User;
 import com.moviebooking.app.repository.UserRepository;
@@ -15,13 +15,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = new User();
+        User user;
         user = userRepository.findByEmail(email);
         if (user == null) {
             throw new UsernameNotFoundException(email + " Not Found");
-        } else {
         }
-        return null;
+        return new CustomUserDetails(user);
     }
 
 }

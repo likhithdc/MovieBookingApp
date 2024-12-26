@@ -1,6 +1,5 @@
 package com.moviebooking.app.model;
 
-import com.moviebooking.app.service.Cinema;
 import jakarta.persistence.*;
 
 

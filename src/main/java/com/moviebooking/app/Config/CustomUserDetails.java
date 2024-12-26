@@ -1,4 +1,4 @@
-package com.moviebooking.app.service;
+package com.moviebooking.app.Config;
 
 import com.moviebooking.app.model.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -49,6 +49,10 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getName() {
+        return user.getName();
     }
 
 }

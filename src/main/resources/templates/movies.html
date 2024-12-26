@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title> Movies</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
@@ -23,7 +23,7 @@
             <td th:text="${movie.releaseDate}"></td>
             <td th:text="${movie.showCycle}"></td>
             <td>
-                <a th:href="@{/booking/create(movieId=${movie.id})}" class="btn btn-primary">Book ticket</a></td>
+                <a class="btn btn-primary" th:href="@{/booking/create(movieId=${movie.id})}">Book ticket</a></td>
         </tr>
         </tbody>
     </table>

@@ -8,7 +8,8 @@ import java.util.List;
 
 
 @Repository
-public interface ScreenRepository extends JpaRepository<Screen,Long> {
+public interface ScreenRepository extends JpaRepository<Screen, Long> {
+
     List<Screen> findByType(String type);
 
 }

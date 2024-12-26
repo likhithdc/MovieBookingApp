@@ -13,13 +13,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true, length = 30)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user")
@@ -48,6 +48,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getName() {
         return name;
     }
@@ -55,4 +56,5 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
 }

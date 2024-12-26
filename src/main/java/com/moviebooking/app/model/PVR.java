@@ -1,9 +1,10 @@
 package com.moviebooking.app.model;
 
 import com.moviebooking.app.service.Cinema;
-import jakarta.persistence.*;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 
 @Entity
