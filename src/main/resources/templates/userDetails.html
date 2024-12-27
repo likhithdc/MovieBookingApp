@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/springsecurity5">
+<head>
+    <title>User Details</title>
+</head>
+<body>
+    <div sec:authorize="isAuthenticated()">
+        Authenticated as: <span sec:authentication="name"></span><br>
+        Name: <span th:text="${user.name}"></span><br>
+        Email: <span th:text="${user.username}"></span>
+    </div>
+</div>
+</body>
+</html>

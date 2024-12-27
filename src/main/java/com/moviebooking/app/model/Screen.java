@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 
 @Entity
-@NamedQuery(name = "Screen.findByType", query = "SELECT s FROM Screen s WHERE s.type=:type")
 public class Screen {
 
     @Id
@@ -13,14 +12,14 @@ public class Screen {
 
     private String type;
 
+
+    @ManyToOne
+    @JoinColumn(name = "cinema_id", foreignKey = @ForeignKey(name = "FK_Cinema_Screen"))
+    private Cinema cinema;
+
     @OneToOne
+    @JoinColumn(name = "movie_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_Movie_Screen"))
     private Movie movie;
-
-    @ManyToOne
-    private PVR pvrCinema;
-
-    @ManyToOne
-    private Innox innoxCinema;
 
     public String getType() {
         return type;
@@ -46,20 +45,12 @@ public class Screen {
         this.movie = movie;
     }
 
-    public PVR getPvrCinema() {
-        return pvrCinema;
+    public Cinema getCinema() {
+        return cinema;
     }
 
-    public void setPvrCinema(PVR pvrCinema) {
-        this.pvrCinema = pvrCinema;
-    }
-
-    public Innox getInnoxCinema() {
-        return innoxCinema;
-    }
-
-    public void setInnoxCinema(Innox innoxCinema) {
-        this.innoxCinema = innoxCinema;
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
     }
 
 }

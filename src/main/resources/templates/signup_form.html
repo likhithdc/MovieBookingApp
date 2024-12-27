@@ -33,6 +33,9 @@
     <div class="create-account">
         <p>have an account? <a href="/login">login</a></p>
     </div>
+    <div th:if="${errorMessage}" class="alert alert-danger mt-3">
+        <span th:text="${errorMessage}"></span>
+    </div>
 </div>
 </body>
 </html>

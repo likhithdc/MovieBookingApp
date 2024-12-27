@@ -3,6 +3,7 @@ package com.moviebooking.app.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -13,15 +14,23 @@ public class Booking {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_User_Booking"))
     private User user;
 
     @ManyToOne
+    @JoinColumn(name = "movie_id", foreignKey = @ForeignKey(name = "FK_Movie_Booking"))
     private Movie movie;
 
     @ManyToOne
+    @JoinColumn(name = "cinema_id", foreignKey = @ForeignKey(name = "FK_Cinema_Booking"))
+    private Cinema cinema;
+
+    @ManyToOne
+    @JoinColumn(name = "screen_id", foreignKey = @ForeignKey(name = "FK_Screen_Booking"))
     private Screen screen;
 
-    private LocalDate bookingDate;
+    @Column(nullable = false)
+    private LocalDateTime bookingDateTime;
 
     public Movie getMovie() {
         return movie;
@@ -47,12 +56,20 @@ public class Booking {
         this.screen = screen;
     }
 
-    public LocalDate getBookingDate() {
-        return bookingDate;
+    public LocalDateTime getBookingDateTime() {
+        return bookingDateTime;
     }
 
-    public void setBookingDate(LocalDate bookingDate) {
-        this.bookingDate = bookingDate;
+    public void setBookingDateTime(LocalDateTime bookingDateTime) {
+        this.bookingDateTime = bookingDateTime;
+    }
+
+    public Cinema getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
     }
 
 }

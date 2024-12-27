@@ -22,7 +22,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Booking> bookings;
 
     public Long getId() {
@@ -55,6 +55,12 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }  public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 
 }
