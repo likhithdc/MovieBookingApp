@@ -16,3 +16,4 @@ Hibernate and Spring module:
 The life cycle of entity classes completely managed by Hibernate framework
 Named query to be used
 Spring Boot to be used to bootstrap the application
+![image](https://github.com/user-attachments/assets/316e2c7f-21dd-4cd1-9f0d-124ef898c9de)
