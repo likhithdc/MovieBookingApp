@@ -1,4 +1,4 @@
-package com.moviebooking.app.Config;
+package com.moviebooking.app.config;
 
 import com.moviebooking.app.model.User;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,7 +1,6 @@
 package com.moviebooking.app.controller;
 
-import com.moviebooking.app.Config.CustomUserDetails;
-import com.moviebooking.app.model.Movie;
+import com.moviebooking.app.config.CustomUserDetails;
 import com.moviebooking.app.model.User;
 import com.moviebooking.app.repository.UserRepository;
 import com.moviebooking.app.service.BookingService;
@@ -17,9 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 
 @Controller

@@ -1,4 +1,4 @@
-package com.moviebooking.app.Config;
+package com.moviebooking.app.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
